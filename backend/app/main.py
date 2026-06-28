@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import ingestion_runs
+from app.routers import ingestion_runs, sources
 
 app = FastAPI(
     title="Ingestion Governance Dashboard API",
@@ -15,3 +15,4 @@ def health():
     return {"status": "ok"}
 
 app.include_router(ingestion_runs.router)
+app.include_router(sources.router)
