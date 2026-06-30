@@ -9,5 +9,5 @@ router = APIRouter(
 )
 
 @router.get("/", response_model=list[Source])
-def get_sources():
+def list_sources():
     return get_sources()
