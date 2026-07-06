@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import ingestion_runs, sources
+from app.routers import ingestion_runs, sources, worker
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -25,3 +25,4 @@ app.add_middleware(
 
 app.include_router(ingestion_runs.router)
 app.include_router(sources.router)
+app.include_router(worker.router)
