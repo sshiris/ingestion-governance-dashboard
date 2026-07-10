@@ -8,10 +8,10 @@ type WorkerRawDocument = {
 
 type FetchRawResponse = {
     runId: string;
-    documents: WorkerRawDocument[];
+    rawDocuments: WorkerRawDocument[];
 }
 
-const AI_WORKER_URL = process.env.AI_WORKER_URL ?? "http://localhost:8080";
+const AI_WORKER_URL = process.env.AI_WORKER_URL ?? "http://localhost:8000";
 
 export async function fetchRawDocuments(run_id: string): Promise<FetchRawResponse> {
     const res = await fetch(`${AI_WORKER_URL}/worker/ingestion-runs/${run_id}/fetch-raw`, {

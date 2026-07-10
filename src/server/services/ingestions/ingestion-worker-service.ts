@@ -30,7 +30,7 @@ export async function fetchRawDocsWithWorker(runId: string){
         status: "running",
     })
     const result = await fetchRawDocuments(runId)
-    const dbRows = result.documents.map((doc) =>({
+    const dbRows = result.rawDocuments.map((doc) =>({
         runId: runId,
         source: doc.source,
         externalId: doc.externalId,
