@@ -10,3 +10,6 @@ class RawDocument(BaseModel):
 class FetchRawResponse(BaseModel):
     rawDocuments: list[RawDocument]
     run_id: str
+    
+class FetchSourceRequest(BaseModel):
+    sources: list[str]
