@@ -29,7 +29,7 @@ export async function fetchRawDocsWithWorker(runId: string){
         stage: "FETCHING_RAW",
         status: "running",
     })
-    const result = await fetchRawDocuments(runId)
+    const result = await fetchRawDocuments(runId, ["FINLEX"])
     const dbRows = result.rawDocuments.map((doc) =>({
         runId: runId,
         source: doc.source,
