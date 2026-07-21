@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel
 
 class RawDocument(BaseModel):
@@ -10,6 +12,7 @@ class RawDocument(BaseModel):
 class FetchRawResponse(BaseModel):
     rawDocuments: list[RawDocument]
     run_id: str
-    
+
+sourceNames = Literal["FINLEX"]
 class FetchSourceRequest(BaseModel):
-    sources: list[str]
+    sources: list[sourceNames]
