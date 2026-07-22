@@ -8,5 +8,18 @@ def test_fetch_raw_rejects_empty_sources():
         "/worker/ingestion-runs/test-123/fetch-raw",
         json={"sources": []}
     )
-    print(response.status_code)
-    #assert response.status_code == 422
+    assert response.status_code == 422
+    
+def test_fetch_raw_rejects_invalid_source():
+    response = client.post(
+        "/worker/ingestion-runs/test-123/fetch-raw",
+        json={"sources": ["INVALID_SOURCE"]}
+    )
+    assert response.status_code == 422
+
+def test_fetch_missing_sources_field():
+    response = client.post(
+        "/worker/ingestion-runs/test-123/fetch-raw",
+        json={}
+    )
+    assert response.status_code == 422
